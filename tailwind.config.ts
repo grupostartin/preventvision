@@ -47,16 +47,23 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        // Tech color system
+        'electric-blue': "hsl(var(--electric-blue))",
+        'deep-blue': "hsl(var(--deep-blue))",
+        'tech-blue': "hsl(var(--tech-blue))",
+        'cyber-blue': "hsl(var(--cyber-blue))",
+        'tech-gray': "hsl(var(--tech-gray))",
+        'tech-gray-light': "hsl(var(--tech-gray-light))",
+      },
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-tech': 'var(--gradient-tech)',
+        'gradient-hero': 'var(--gradient-hero)',
+      },
+      boxShadow: {
+        'glow': 'var(--glow-primary)',
+        'glow-secondary': 'var(--glow-secondary)',
+        'tech': 'var(--shadow-tech)',
       },
       borderRadius: {
         lg: "var(--radius)",
