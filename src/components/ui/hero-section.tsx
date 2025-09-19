@@ -1,8 +1,9 @@
 import { Button } from "./button";
+import preventLogo from "@/assets/prevent-logo.png";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Animated background effects */}
       <div className="absolute inset-0 bg-gradient-hero opacity-50" />
       <div className="absolute inset-0">
@@ -10,12 +11,24 @@ export const HeroSection = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-tech-blue/15 rounded-full blur-3xl animate-float" />
       </div>
       
+      {/* Logo at top */}
+      <div className="relative z-10 pt-8 pb-4">
+        <div className="container mx-auto px-6 text-center">
+          <img 
+            src={preventLogo} 
+            alt="Prevent Vision Logo" 
+            className="h-16 md:h-20 mx-auto mb-2"
+          />
+        </div>
+      </div>
+      
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center">
-        <div className="max-w-4xl mx-auto animate-slide-in-up">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient leading-tight">
-            Ótica Previne
-          </h1>
+      <div className="relative z-10 flex-1 flex items-center justify-center">
+        <div className="container mx-auto px-6 text-center">
+          <div className="max-w-4xl mx-auto animate-slide-in-up">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient leading-tight">
+              Prevent Vision
+            </h1>
           <p className="text-xl md:text-2xl mb-4 text-foreground/90 font-light">
             Tecnologia em Visão
           </p>
@@ -40,6 +53,7 @@ export const HeroSection = () => {
           <Button variant="hero" size="lg" className="text-lg px-8 py-4">
             Conheça Nossas Lentes
           </Button>
+          </div>
         </div>
       </div>
     </section>
