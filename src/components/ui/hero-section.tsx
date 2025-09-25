@@ -3,14 +3,29 @@ import preventLogo from "@/assets/prevent-logo.png";
 import { useParallax } from "@/hooks/use-scroll-animation";
 import { AnimatedGroup } from "./animated-group";
 import { motion } from "framer-motion";
+import { useRef, useState } from "react";
 
 export const HeroSection = () => {
   const parallaxOffset1 = useParallax(0.3);
   const parallaxOffset2 = useParallax(0.5);
   const parallaxOffset3 = useParallax(0.7);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [showControls, setShowControls] = useState(false);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      setShowControls(true);
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+    <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col overflow-hidden">
       {/* Animated background effects with parallax */}
       <div className="absolute inset-0 bg-gradient-hero opacity-50" />
       <div className="absolute inset-0">
@@ -33,12 +48,12 @@ export const HeroSection = () => {
       
       {/* Logo at top */}
       <motion.div 
-        className="relative z-10 pt-8 pb-4"
+        className="relative z-10 pt-6 md:pt-8 pb-3 md:pb-4"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="container mx-auto px-6 text-center">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
           <img 
             src={preventLogo} 
             alt="Prevent Vision Logo" 
@@ -48,8 +63,8 @@ export const HeroSection = () => {
       </motion.div>
       
       {/* Content */}
-      <div className="relative z-10 flex-1 flex items-center justify-center">
-        <div className="container mx-auto px-6 text-center">
+      <div className="relative z-10 flex-1 flex items-start justify-start md:items-center md:justify-center">
+        <div className="container mx-auto px-4 sm:px-6 text-center pt-2 pb-10 md:pt-0 md:pb-0">
           <AnimatedGroup
             variants={{
               container: {
@@ -81,7 +96,7 @@ export const HeroSection = () => {
             className="max-w-4xl mx-auto"
           >
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 text-gradient leading-tight"
+              className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 text-gradient leading-tight"
               variants={{
                 hidden: { opacity: 0, y: 50, scale: 0.9 },
                 visible: { 
@@ -100,7 +115,7 @@ export const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl mb-4 text-foreground/90 font-light"
+              className="text-base sm:text-xl md:text-2xl mb-4 text-foreground/90 font-light"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { 
@@ -119,7 +134,7 @@ export const HeroSection = () => {
             </motion.p>
             
             <motion.p 
-              className="text-lg md:text-xl mb-12 text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+              className="text-sm sm:text-lg md:text-xl mb-8 sm:mb-12 text-muted-foreground max-w-2xl mx-auto leading-relaxed"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { 
@@ -139,7 +154,7 @@ export const HeroSection = () => {
             
             {/* Video placeholder */}
             <motion.div 
-              className="bg-card/50 border tech-border rounded-2xl p-8 mb-12 backdrop-blur-sm"
+              className="bg-card/50 border tech-border rounded-2xl p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 backdrop-blur-sm"
               variants={{
                 hidden: { opacity: 0, y: 30, scale: 0.95 },
                 visible: { 
@@ -155,34 +170,32 @@ export const HeroSection = () => {
                 },
               }}
             >
-              <div className="aspect-video bg-muted/30 rounded-xl flex items-center justify-center">
-                <motion.div 
-                  className="text-center"
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.8 },
-                    visible: { 
-                      opacity: 1, 
-                      scale: 1,
-                      transition: {
-                        type: 'spring',
-                        bounce: 0.4,
-                        duration: 0.8,
-                        delay: 0.8,
-                      }
-                    },
-                  }}
-                >
-                  <motion.div 
-                    className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-full flex items-center justify-center"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
+              <div className="aspect-video rounded-xl overflow-hidden bg-black relative group">
+                <video 
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  src="/video.mp4"
+                  controls={showControls}
+                  playsInline
+                  preload="metadata"
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
+                />
+
+                {/* Botão Play central */}
+                {!isPlaying && (
+                  <button
+                    type="button"
+                    onClick={togglePlay}
+                    className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
+                    aria-label="Reproduzir vídeo"
                   >
-                    <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
+                    <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
                     </svg>
-                  </motion.div>
-                  <p className="text-muted-foreground">Espaço reservado para vídeo</p>
-                </motion.div>
+                  </button>
+                )}
               </div>
             </motion.div>
             
@@ -204,7 +217,7 @@ export const HeroSection = () => {
               <Button 
                 variant="hero" 
                 size="lg" 
-                className="text-lg px-8 py-4"
+                className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 0 30px rgba(59, 130, 246, 0.5)"
