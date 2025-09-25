@@ -3,26 +3,10 @@ import preventLogo from "@/assets/prevent-logo.png";
 import { useParallax } from "@/hooks/use-scroll-animation";
 import { AnimatedGroup } from "./animated-group";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-
 export const HeroSection = () => {
   const parallaxOffset1 = useParallax(0.3);
   const parallaxOffset2 = useParallax(0.5);
   const parallaxOffset3 = useParallax(0.7);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showControls, setShowControls] = useState(false);
-
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (video.paused) {
-      setShowControls(true);
-      video.play();
-    } else {
-      video.pause();
-    }
-  };
 
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col overflow-hidden">
@@ -170,32 +154,15 @@ export const HeroSection = () => {
                 },
               }}
             >
-              <div className="aspect-video rounded-xl overflow-hidden bg-black relative group">
-                <video 
-                  ref={videoRef}
-                  className="w-full h-full object-cover"
-                  src="/video.mp4"
-                  controls={showControls}
-                  playsInline
-                  preload="metadata"
-                  onPlay={() => setIsPlaying(true)}
-                  onPause={() => setIsPlaying(false)}
-                  onEnded={() => setIsPlaying(false)}
-                />
-
-                {/* Botão Play central */}
-                {!isPlaying && (
-                  <button
-                    type="button"
-                    onClick={togglePlay}
-                    className="absolute inset-0 m-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-lg hover:scale-105 transition-transform"
-                    aria-label="Reproduzir vídeo"
-                  >
-                    <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
+              <div className="aspect-video bg-muted/30 rounded-xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 text-primary">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                  </button>
-                )}
+                  </div>
+                  <p className="text-muted-foreground">Espaço reservado para vídeo</p>
+                </div>
               </div>
             </motion.div>
             
