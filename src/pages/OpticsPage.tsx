@@ -1,218 +1,232 @@
 import { HeroSection } from "@/components/ui/hero-section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { LensCard } from "@/components/ui/lens-card";
-import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { Shield, Eye, Zap, Settings, Users, Laptop } from "lucide-react";
+import {
+  Eye,
+  Zap,
+  Settings,
+  Users,
+  Laptop,
+  Maximize,
+  ArrowRightLeft,
+  ZapOff,
+  Sparkles,
+  MousePointer2,
+  Dna,
+  CheckCircle2,
+  Shield
+} from "lucide-react";
 
 const OpticsPage = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* 1) Banner principal (Hero) - Updated in component */}
       <HeroSection />
-      
-      {/* Blue Filter Section */}
+
+      {/* 2) Bloco “Essência da marca” */}
       <AnimatedSection animation="fade-up" delay={200}>
-        <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 relative">
+        <section className="py-20 sm:py-28 px-4 sm:px-6 relative overflow-hidden">
           <div className="container mx-auto">
-            <SectionHeader 
-              title="Filtro Blue"
-              subtitle="Proteção"
-              description="Proteção UV e luz azul para sua diversificada vida cotidiana. Proteção contra luz azul indispensável. Visão diária protegida para todas as lentes Vision Class."
+            <SectionHeader
+              title="Um novo padrão de multifocal: conforto que se percebe no dia a dia"
+              description="A Prevent Vision nasce para quem busca uma multifocal que entregue nitidez, estabilidade e transição suave entre longe, intermediário e perto — com um desenho avançado que prioriza conforto visual."
             />
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-card/50 border tech-border rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm">
-                <div className="aspect-video bg-muted/30 rounded-xl overflow-hidden mb-4 sm:mb-6">
-                  <img 
-                    src="/oculos.png" 
-                    alt="Óculos com paisagem de montanha - Filtro Blue Prevent Vision"
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
-                <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-                  <div>
-                    <h4 className="text-xl font-semibold mb-4 text-primary">Proteção UV</h4>
-                    <p className="text-muted-foreground">Filtragem completa dos raios ultravioleta nocivos</p>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mt-12">
+              {[
+                { icon: Maximize, text: "Campo visual amplo" },
+                { icon: ZapOff, text: "Menos distorções laterais" },
+                { icon: ArrowRightLeft, text: "Transição mais suave" },
+                { icon: MousePointer2, text: "Ergonomia e conforto" },
+                { icon: Sparkles, text: "Adaptação facilitada" },
+                { icon: Users, text: "Equilíbrio binocular" }
+              ].map((item, index) => (
+                <AnimatedSection key={index} animation="scale" delay={300 + index * 100}>
+                  <div className="bg-card/30 border tech-border rounded-2xl p-4 text-center backdrop-blur-sm h-full flex flex-col items-center justify-center hover:bg-primary/5 transition-colors group">
+                    <item.icon className="w-8 h-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+                    <p className="text-sm font-medium leading-tight">{item.text}</p>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-4 text-primary">Luz Azul</h4>
-                    <p className="text-muted-foreground">Redução da luz azul emitida por dispositivos digitais</p>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* 3) Bloco “Tecnologia por trás” */}
+      <AnimatedSection animation="fade-up" delay={200}>
+        <section className="py-20 sm:py-28 px-4 sm:px-6 bg-gradient-tech relative">
+          <div className="container mx-auto">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-gradient">
+                  Tecnologia Free Form: quando a lente é desenhada com precisão milimétrica
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                  A tecnologia Free Form permite um desenho mais refinado e preciso da lente multifocal,
+                  otimizando as áreas de visão para melhorar o desempenho em diferentes distâncias. Na
+                  prática, isso se traduz em mais naturalidade na visão, melhor aproveitamento do
+                  campo visual e redução de desconfortos periféricos.
+                </p>
+                <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-2xl">
+                  <p className="text-foreground font-semibold italic">
+                    Produção com máquinas de última geração e lapidação de alta precisão para
+                    personalização do design.
+                  </p>
+                </div>
+              </div>
+              <div className="relative">
+                <div className="aspect-square bg-card/50 border tech-border rounded-full p-8 flex items-center justify-center animate-pulse-glow">
+                  <div className="text-center">
+                    <Dna className="w-24 h-24 text-primary mx-auto mb-4 animate-float" />
+                    <p className="text-primary font-bold tracking-tighter text-2xl">FREE FORM</p>
+                    <p className="text-xs text-muted-foreground tracking-widest uppercase mt-2">Tecnologia Digital</p>
                   </div>
                 </div>
+                {/* Decorative dots */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
               </div>
             </div>
           </div>
         </section>
       </AnimatedSection>
 
-      {/* Prevent Vision Lenses */}
-      <AnimatedSection animation="fade-up" delay={300}>
-        <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-tech">
+      {/* 4) Bloco “Experiência visual” */}
+      <AnimatedSection animation="fade-up" delay={200}>
+        <section className="py-20 sm:py-28 px-4 sm:px-6">
           <div className="container mx-auto">
-            <SectionHeader 
-              title="Lentes Prevent Vision"
-              description="Tecnologia avançada para cada necessidade visual"
+            <SectionHeader
+              title="Mais estabilidade para longe. Mais conforto para perto. Mais leveza na adaptação."
+              description="Uma multifocal bem projetada não é só “enxergar”: é se adaptar com mais tranquilidade, sentir o olhar mais estável ao se movimentar e ter conforto em atividades como leitura, telas, trabalho e direção."
             />
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              <AnimatedSection animation="fade-left" delay={400}>
-                <LensCard
-                  title="Prevent Vision 6K"
-                  icon={<Eye className="w-8 h-8 text-primary" />}
-                  features={[
-                    "Redução do astigmatismo indesejável",
-                    "Precisão em todas as direções",
-                    "Ergonomia e conforto",
-                    "Campos visuais incomparáveis"
-                  ]}
-                />
-              </AnimatedSection>
-              
-              <AnimatedSection animation="fade-right" delay={500}>
-                <LensCard
-                  title="Prevent Vision 8K"
-                  icon={<Zap className="w-8 h-8 text-primary" />}
-                  features={[
-                    "Astigmatismo marginal mínimo",
-                    "Redução do astigmatismo indesejável",
-                    "Precisão em todas as direções",
-                    "Ergonomia e conforto",
-                    "Melhoria de espessura",
-                    "Campos visuais incomparáveis"
-                  ]}
-                />
-              </AnimatedSection>
-              
-              <AnimatedSection animation="fade-left" delay={600}>
-                <LensCard
-                  title="Prevent Vision 10K"
-                  icon={<Settings className="w-8 h-8 text-primary" />}
-                  features={[
-                    "Conforto excepcional periférico",
-                    "Redução do astigmatismo indesejável",
-                    "Precisão em todas as direções",
-                    "Ergonomia e conforto",
-                    "Melhoria de espessura",
-                    "Perfil Digital (DP)",
-                    "Campos visuais incomparáveis"
-                  ]}
-                />
-              </AnimatedSection>
-              
-              <AnimatedSection animation="fade-right" delay={700}>
-                <LensCard
-                  title="Prevent Vision 12K"
-                  icon={<Eye className="w-8 h-8 text-accent" />}
-                  highlight={true}
-                  features={[
-                    "Tecnologia Free Form",
-                    "Campo visual equilibrado",
-                    "Redução do astigmatismo indesejável",
-                    "Precisão em todas as direções",
-                    "Ergonomia e conforto",
-                    "Melhoria de espessura",
-                    "Perfil Digital (DP)",
-                    "Personalizada",
-                    "Campos visuais incomparáveis",
-                    "Balança binocular"
-                  ]}
-                />
-              </AnimatedSection>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {[
+                { title: "Rotinas digitais (telas)", icon: Laptop },
+                { title: "Leitura e foco de perto", icon: Eye },
+                { title: "Mobilidade e direção", icon: Zap },
+                { title: "Ambientes internos e externos", icon: Shield }
+              ].map((topic, index) => (
+                <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-card border tech-border">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <topic.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <span className="font-medium text-sm">{topic.title}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
       </AnimatedSection>
 
-      {/* Polarized Lenses */}
+      {/* 5) Seção “Linhas Prevent Vision” */}
       <AnimatedSection animation="fade-up" delay={200}>
-        <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
+        <section id="linhas-vision" className="py-20 sm:py-28 px-4 sm:px-6 bg-gradient-tech">
           <div className="container mx-auto">
-            <SectionHeader 
-              title="O que são lentes polarizadas?"
-              description="Feitas para amenizar os impactos da luz e reflexo nos olhos. Eficazes contra raios UVA e UVB. Filtro que protege os olhos da radiação solar. Conforto visual com tecnologia de aumento de contraste."
+            <SectionHeader
+              title="Linhas Prevent Vision: níveis de performance para diferentes rotinas"
+              description="Cada linha foi desenhada para atender perfis distintos — mantendo a base de tecnologia, precisão e conforto visual."
             />
-            
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                <AnimatedSection animation="fade-left" delay={300}>
-                  <div>
-                    <div className="bg-card/50 border tech-border rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm mb-6 sm:mb-8">
-                      <h4 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-gradient">Comparação Visual</h4>
-                      <div className="space-y-4 sm:space-y-6">
-                        <div className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
-                          <span>Lente comum</span>
-                          <div className="w-16 h-8 bg-gradient-to-r from-muted to-tech-gray rounded opacity-70" />
-                        </div>
-                        <div className="flex items-center justify-between p-4 bg-primary/10 rounded-lg">
-                          <span>Lente polarizada</span>
-                          <div className="w-16 h-8 bg-gradient-primary rounded shadow-glow" />
-                        </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <LensCard
+                title="Prevent Vision 6K"
+                subtitle="Campos bem definidos e conforto consistente."
+                description="Uma lente multifocal com desempenho equilibrado para quem busca boa nitidez, com intermediário e perto bem estruturados, oferecendo uma experiência segura para a rotina."
+                icon={<Eye className="w-8 h-8 text-primary" />}
+                features={[
+                  "Campos bem definidos",
+                  "Ergonomia e conforto",
+                  "Campo visual consistente"
+                ]}
+              />
+
+              <LensCard
+                title="Prevent Vision 8K"
+                subtitle="Equilíbrio inteligente para uma rotina moderna e conectada."
+                description="Desenvolvida para entregar ótimo desempenho no intermediário e perto, trazendo mais conforto para quem alterna entre smartphone, tablet e computador."
+                icon={<Laptop className="w-8 h-8 text-primary" />}
+                features={[
+                  "Intermediário mais confortável",
+                  "Uso de telas com mais estabilidade",
+                  "Transição suave no dia a dia"
+                ]}
+              />
+
+              <LensCard
+                title="Prevent Vision 10K"
+                subtitle="Conforto superior com menor instabilidade periférica."
+                description="Uma lente feita para otimizar o campo de visão e reduzir incômodos comuns, trazendo uma sensação mais fluida ao caminhar, trabalhar e alternar distâncias."
+                icon={<Settings className="w-8 h-8 text-primary" />}
+                features={[
+                  "Mais estabilidade periférica",
+                  "Intermediário otimizado",
+                  "Conforto para rotina ativa"
+                ]}
+              />
+
+              <LensCard
+                title="Prevent Vision 12K"
+                highlight={true}
+                subtitle="Performance máxima com precisão em todas as direções."
+                description="A linha mais avançada da Prevent Vision, desenhada para quem exige grande campo visual, conforto contínuo e máxima precisão no uso diário."
+                icon={<Sparkles className="w-8 h-8 text-accent" />}
+                features={[
+                  "Campo visual amplificado",
+                  "Precisão e equilíbrio binocular",
+                  "Adaptação mais natural"
+                ]}
+              />
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* 6) Seção “Prevent Vision Work” */}
+      <AnimatedSection animation="fade-up" delay={200}>
+        <section className="py-20 sm:py-28 px-4 sm:px-6">
+          <div className="container mx-auto">
+            <div className="max-w-6xl mx-auto bg-card/30 border tech-border rounded-3xl overflow-hidden backdrop-blur-sm">
+              <div className="grid lg:grid-cols-2">
+                <div className="p-8 sm:p-12 md:p-16 flex flex-col justify-center">
+                  <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+                    Ambientes Internos
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gradient">
+                    Prevent Vision Work
+                  </h2>
+                  <p className="text-xl text-primary font-medium mb-6">
+                    Pensada para ambientes internos e curta distância
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-8">
+                    Uma lente voltada para usuários que trabalham em ambientes fechados e usam visão de
+                    curta distância e intermediária com frequência — como professores, programadores,
+                    dentistas e profissionais de escritório. O objetivo é entregar conforto e eficiência no foco
+                    de trabalho.
+                  </p>
+
+                  <div className="space-y-4">
+                    {[
+                      "Conforto para telas e tarefas de curta distância",
+                      "Rotina interna com mais leveza visual",
+                      "Intermediário funcional e estável"
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <CheckCircle2 className="w-5 h-5 text-primary" />
+                        <span className="font-medium">{item}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
-                </AnimatedSection>
-                
-                <AnimatedSection animation="fade-right" delay={400}>
-                  <div className="space-y-4 sm:space-y-6">
-                    <div className="bg-card/50 border tech-border rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
-                      <Shield className="w-12 h-12 text-primary mb-4" />
-                      <h4 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Proteção UV</h4>
-                      <p className="text-muted-foreground">Filtragem completa dos raios UVA e UVB</p>
-                    </div>
-                    
-                    <div className="bg-card/50 border tech-border rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
-                      <Eye className="w-12 h-12 text-primary mb-4" />
-                      <h4 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">Redução de Reflexos</h4>
-                      <p className="text-muted-foreground">Elimina reflexos indesejados em superfícies</p>
-                    </div>
-                  </div>
-                </AnimatedSection>
-              </div>
-            </div>
-          </div>
-        </section>
-      </AnimatedSection>
-
-      {/* Photosensitive Treatments */}
-      <AnimatedSection animation="fade-up" delay={200}>
-        <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gradient-tech">
-          <div className="container mx-auto">
-            <SectionHeader 
-              title="Fotossensível"
-              subtitle="Lentes que escurecem em ambientes externos?"
-              description="Transições rápidas de lentes transparentes para tonalidade cinza conforme intensidade dos Raios UV. Proporcionando proteção, praticidade e estilo incomparáveis. Descubra o poder das lentes que acompanham seu estilo de vida."
-            />
-            
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-card/50 border tech-border rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm">
-                <div className="aspect-video bg-muted/30 rounded-xl overflow-hidden mb-4 sm:mb-6">
-                  <img 
-                    src="/mulher.png" 
-                    alt="Mulher sorrindo com óculos - Lentes Fotossensíveis Prevent Vision"
-                    className="w-full h-full object-cover rounded-xl"
+                </div>
+                <div className="bg-muted/10 relative overflow-hidden group">
+                  <img
+                    src="/homem.png"
+                    alt="Profissional trabalhando - Prevent Vision Work"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                </div>
-                
-                <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
-                  <AnimatedSection animation="scale" delay={300}>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-transparent border-2 border-primary rounded-full mx-auto mb-3" />
-                      <p className="text-sm">Transparente</p>
-                    </div>
-                  </AnimatedSection>
-                  <AnimatedSection animation="scale" delay={400}>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-primary/50 rounded-full mx-auto mb-3" />
-                      <p className="text-sm">Transição</p>
-                    </div>
-                  </AnimatedSection>
-                  <AnimatedSection animation="scale" delay={500}>
-                    <div className="text-center">
-                      <div className="w-12 h-12 bg-tech-gray rounded-full mx-auto mb-3" />
-                      <p className="text-sm">Escurecida</p>
-                    </div>
-                  </AnimatedSection>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-l" />
                 </div>
               </div>
             </div>
@@ -220,86 +234,54 @@ const OpticsPage = () => {
         </section>
       </AnimatedSection>
 
-      {/* Work Lenses */}
+      {/* 7) Bloco de credibilidade (educativo) */}
       <AnimatedSection animation="fade-up" delay={200}>
-        <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
-          <div className="container mx-auto">
-            <SectionHeader 
-              title="Office Prevent Vision Work"
-              description="Feito para usuários que trabalham em ambientes fechados com curta distância. Ideal para professores, programadores, dentistas entre outros."
-            />
-            
-            <div className="max-w-6xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <AnimatedSection animation="fade-left" delay={300}>
-                  <div>
-                    <div className="bg-card/50 border tech-border rounded-2xl p-2 sm:p-4 backdrop-blur-sm">
-                      <div className="aspect-[4/3] bg-muted/30 rounded-xl overflow-hidden">
-                        <img 
-                          src="/homem.png" 
-                          alt="Homem trabalhando em ambiente fechado - Office Prevent Vision Work"
-                          className="w-full h-full object-cover rounded-xl"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </AnimatedSection>
-                
-                <AnimatedSection animation="fade-right" delay={400}>
-                  <div>
-                    <h4 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-8 text-gradient">Profissões Ideais</h4>
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      {[
-                        { icon: Users, name: "Professores" },
-                        { icon: Laptop, name: "Programadores" },
-                        { icon: Eye, name: "Dentistas" },
-                        { icon: Settings, name: "Outros" }
-                      ].map((profession, index) => (
-                        <AnimatedSection key={index} animation="scale" delay={500 + index * 100}>
-                          <div className="bg-card/50 border tech-border rounded-xl p-3 sm:p-4 text-center backdrop-blur-sm hover:scale-105 transition-transform">
-                            <profession.icon className="w-7 h-7 sm:w-8 sm:h-8 mx-auto mb-1.5 sm:mb-2 text-primary" />
-                            <p className="text-xs sm:text-sm font-medium">{profession.name}</p>
-                          </div>
-                        </AnimatedSection>
-                      ))}
-                    </div>
-                  </div>
-                </AnimatedSection>
-              </div>
+        <section className="py-20 sm:py-28 px-4 sm:px-6 bg-primary/5">
+          <div className="container mx-auto text-center max-w-4xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-gradient">
+              A adaptação de uma multifocal depende do projeto — e da precisão da produção
+            </h2>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              Uma boa experiência com lentes multifocais é resultado de três pilares: desenho
+              avançado, produção precisa e escolha correta da linha para o perfil do usuário. A
+              Prevent Vision foi estruturada para entregar exatamente isso: uma multifocal com
+              engenharia visual e precisão no processo.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+              {[
+                { label: "Desenho Avançado", value: "100%" },
+                { label: "Produção Precisa", value: "Microns" },
+                { label: "Escolha Correta", value: "Perfil" }
+              ].map((item, i) => (
+                <div key={i} className="p-6 border tech-border rounded-2xl bg-card">
+                  <p className="text-3xl font-bold text-primary mb-2">{item.value}</p>
+                  <p className="text-sm uppercase tracking-widest text-muted-foreground">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
       </AnimatedSection>
 
-      {/* CTA Section */}
-      <AnimatedSection animation="fade-up" delay={200}>
-        <section className="py-24 px-6 bg-gradient-hero relative">
-          <div className="absolute inset-0 bg-background/80" />
-          <div className="container mx-auto relative z-10">
-            <div className="text-center max-w-4xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
-                Pronto para uma nova visão?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-12">
-                Descubra a tecnologia que vai transformar sua forma de ver o mundo
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <AnimatedSection animation="scale" delay={300}>
-                  <Button variant="hero" size="lg">
-                    Agendar Consulta
-                  </Button>
-                </AnimatedSection>
-                <AnimatedSection animation="scale" delay={400}>
-                  <Button variant="outline" size="lg">
-                    Falar com Especialista
-                  </Button>
-                </AnimatedSection>
-              </div>
+      {/* 8) Encerramento institucional (sem CTA) */}
+      <section className="py-24 sm:py-32 px-6 bg-gradient-hero relative overflow-hidden text-center">
+        <div className="absolute inset-0 bg-background/90" />
+        <div className="container mx-auto relative z-10">
+          <AnimatedSection animation="scale" delay={200}>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-gradient">
+              Prevent Vision: tecnologia que melhora o modo como você vive a visão.
+            </h2>
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-xl md:text-2xl text-muted-foreground font-light italic">
+              <span>Mais naturalidade.</span>
+              <span className="w-2 h-2 bg-primary rounded-full hidden md:block" />
+              <span>Mais conforto.</span>
+              <span className="w-2 h-2 bg-primary rounded-full hidden md:block" />
+              <span>Mais performance em todas as distâncias.</span>
             </div>
-          </div>
-        </section>
-      </AnimatedSection>
+          </AnimatedSection>
+        </div>
+      </section>
     </div>
   );
 };
