@@ -7,9 +7,10 @@ interface LensCardProps {
   features: string[];
   icon?: ReactNode;
   highlight?: boolean;
+  imageUrl?: string;
 }
 
-export const LensCard = ({ title, subtitle, description, features, icon, highlight }: LensCardProps) => {
+export const LensCard = ({ title, subtitle, description, features, icon, highlight, imageUrl }: LensCardProps) => {
   return (
     <div className={`
       bg-card/50 border tech-border rounded-2xl p-6 md:p-8 backdrop-blur-sm 
@@ -22,7 +23,7 @@ export const LensCard = ({ title, subtitle, description, features, icon, highlig
           {icon}
         </div>
       )}
-      
+
       <div className="text-center mb-6 flex-shrink-0">
         <h3 className="text-xl md:text-2xl font-bold mb-2 text-gradient">
           {title}
@@ -33,12 +34,22 @@ export const LensCard = ({ title, subtitle, description, features, icon, highlig
           </p>
         )}
         {description && (
-          <p className="text-muted-foreground text-sm leading-relaxed italic">
+          <p className="text-muted-foreground text-sm leading-relaxed italic mb-4">
             {description}
           </p>
         )}
       </div>
-      
+
+      {imageUrl && (
+        <div className="mb-6 rounded-xl overflow-hidden border tech-border bg-muted/20">
+          <img
+            src={imageUrl}
+            alt={`${title} field of vision`}
+            className="w-full aspect-video object-cover transition-transform duration-500 hover:scale-110"
+          />
+        </div>
+      )}
+
       <div className="space-y-3 md:space-y-4 flex-grow border-t border-muted/20 pt-6">
         {features.map((feature, index) => (
           <div key={index} className="flex items-start gap-3">

@@ -135,6 +135,7 @@ const OpticsPage = () => {
                 title="Prevent Vision 6K"
                 subtitle="Campos bem definidos e conforto consistente."
                 description="Uma lente multifocal com desempenho equilibrado para quem busca boa nitidez, com intermediário e perto bem estruturados, oferecendo uma experiência segura para a rotina."
+                imageUrl="/vision-6k.png"
                 icon={<Eye className="w-8 h-8 text-primary" />}
                 features={[
                   "Campos bem definidos",
@@ -147,6 +148,7 @@ const OpticsPage = () => {
                 title="Prevent Vision 8K"
                 subtitle="Equilíbrio inteligente para uma rotina moderna e conectada."
                 description="Desenvolvida para entregar ótimo desempenho no intermediário e perto, trazendo mais conforto para quem alterna entre smartphone, tablet e computador."
+                imageUrl="/vision-8k.png"
                 icon={<Laptop className="w-8 h-8 text-primary" />}
                 features={[
                   "Intermediário mais confortável",
@@ -159,6 +161,7 @@ const OpticsPage = () => {
                 title="Prevent Vision 10K"
                 subtitle="Conforto superior com menor instabilidade periférica."
                 description="Uma lente feita para otimizar o campo de visão e reduzir incômodos comuns, trazendo uma sensação mais fluida ao caminhar, trabalhar e alternar distâncias."
+                imageUrl="/vision-10k.png"
                 icon={<Settings className="w-8 h-8 text-primary" />}
                 features={[
                   "Mais estabilidade periférica",
@@ -172,6 +175,7 @@ const OpticsPage = () => {
                 highlight={true}
                 subtitle="Performance máxima com precisão em todas as direções."
                 description="A linha mais avançada da Prevent Vision, desenhada para quem exige grande campo visual, conforto contínuo e máxima precisão no uso diário."
+                imageUrl="/vision-12k.png"
                 icon={<Sparkles className="w-8 h-8 text-accent" />}
                 features={[
                   "Campo visual amplificado",
@@ -222,7 +226,7 @@ const OpticsPage = () => {
                 </div>
                 <div className="bg-muted/10 relative overflow-hidden group">
                   <img
-                    src="/homem.png"
+                    src="/vision-work.png"
                     alt="Profissional trabalhando - Prevent Vision Work"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
