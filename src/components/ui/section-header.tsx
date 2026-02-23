@@ -1,7 +1,9 @@
+import React from "react";
+
 interface SectionHeaderProps {
   title: string;
-  subtitle?: string;
-  description?: string;
+  subtitle?: React.ReactNode;
+  description?: React.ReactNode;
 }
 
 export const SectionHeader = ({ title, subtitle, description }: SectionHeaderProps) => {

@@ -30,7 +30,7 @@ const OpticsPage = () => {
           <div className="container mx-auto">
             <SectionHeader
               title="Um novo padrão de multifocal: conforto que se percebe no dia a dia"
-              description="A Prevent Vision nasce para quem busca uma multifocal que entregue nitidez, estabilidade e transição suave entre longe, intermediário e perto — com um desenho avançado que prioriza conforto visual."
+              description={<>A Prevent Vision nasce para quem busca uma <strong>lente multifocal</strong> que entregue <strong>nitidez</strong>, <strong>estabilidade</strong> e <strong>transição suave</strong> entre longe, intermediário e perto — com um <strong>desenho avançado</strong> que prioriza <strong>conforto visual</strong>.</>}
             />
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 mt-12">
@@ -64,15 +64,15 @@ const OpticsPage = () => {
                   Tecnologia Free Form: quando a lente é desenhada com precisão milimétrica
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                  A tecnologia Free Form permite um desenho mais refinado e preciso da lente multifocal,
-                  otimizando as áreas de visão para melhorar o desempenho em diferentes distâncias. Na
-                  prática, isso se traduz em mais naturalidade na visão, melhor aproveitamento do
-                  campo visual e redução de desconfortos periféricos.
+                  A tecnologia <strong>Free Form</strong> permite um desenho mais refinado e <strong>preciso</strong> da <strong>lente multifocal</strong>,
+                  otimizando as áreas de visão para melhorar o <strong>desempenho</strong> em diferentes distâncias. Na
+                  prática, isso se traduz em mais <strong>naturalidade na visão</strong>, melhor aproveitamento do
+                  <strong> campo visual</strong> e redução de <strong>desconfortos periféricos</strong>.
                 </p>
                 <div className="bg-primary/10 border-l-4 border-primary p-6 rounded-r-2xl">
                   <p className="text-foreground font-semibold italic">
-                    Produção com máquinas de última geração e lapidação de alta precisão para
-                    personalização do design.
+                    Produção com máquinas de última geração e lapidação de <strong>alta precisão</strong> para
+                    <strong> personalização do design</strong>.
                   </p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const OpticsPage = () => {
           <div className="container mx-auto">
             <SectionHeader
               title="Mais estabilidade para longe. Mais conforto para perto. Mais leveza na adaptação."
-              description="Uma multifocal bem projetada não é só “enxergar”: é se adaptar com mais tranquilidade, sentir o olhar mais estável ao se movimentar e ter conforto em atividades como leitura, telas, trabalho e direção."
+              description={<>Uma <strong>lente multifocal bem projetada</strong> não é só “enxergar”: é <strong>se adaptar</strong> com mais tranquilidade, sentir o olhar mais <strong>estável</strong> ao se movimentar e ter <strong>conforto</strong> em atividades como <strong>leitura, telas, trabalho e direção</strong>.</>}
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -127,7 +127,7 @@ const OpticsPage = () => {
           <div className="container mx-auto">
             <SectionHeader
               title="Linhas Prevent Vision: níveis de performance para diferentes rotinas"
-              description="Cada linha foi desenhada para atender perfis distintos — mantendo a base de tecnologia, precisão e conforto visual."
+              description={<>Cada linha foi desenhada para atender <strong>perfis distintos</strong> — mantendo a base de <strong>tecnologia</strong>, <strong>precisão</strong> e <strong>conforto visual</strong>.</>}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -205,10 +205,10 @@ const OpticsPage = () => {
                     Pensada para ambientes internos e curta distância
                   </p>
                   <p className="text-muted-foreground leading-relaxed mb-8">
-                    Uma lente voltada para usuários que trabalham em ambientes fechados e usam visão de
-                    curta distância e intermediária com frequência — como professores, programadores,
-                    dentistas e profissionais de escritório. O objetivo é entregar conforto e eficiência no foco
-                    de trabalho.
+                    Uma lente voltada para usuários que trabalham em <strong>ambientes fechados</strong> e usam <strong>visão de
+                      curta distância e intermediária</strong> com frequência — como professores, programadores,
+                    dentistas e profissionais de escritório. O objetivo é entregar <strong>conforto</strong> e <strong>eficiência no foco
+                      de trabalho</strong>.
                   </p>
 
                   <div className="space-y-4">
@@ -243,13 +243,13 @@ const OpticsPage = () => {
         <section className="py-20 sm:py-28 px-4 sm:px-6 bg-primary/5">
           <div className="container mx-auto text-center max-w-4xl">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-gradient">
-              A adaptação de uma multifocal depende do projeto — e da precisão da produção
+              A adaptação de uma lente multifocal depende do projeto — e da precisão da produção
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Uma boa experiência com lentes multifocais é resultado de três pilares: desenho
-              avançado, produção precisa e escolha correta da linha para o perfil do usuário. A
-              Prevent Vision foi estruturada para entregar exatamente isso: uma multifocal com
-              engenharia visual e precisão no processo.
+              Uma boa experiência com <strong>lentes multifocais</strong> é resultado de três pilares: <strong>desenho
+                avançado</strong>, <strong>produção precisa</strong> e <strong>escolha correta da linha</strong> para o perfil do usuário. A
+              Prevent Vision foi estruturada para entregar exatamente isso: uma <strong>lente multifocal</strong> com
+              <strong> engenharia visual</strong> e <strong>precisão no processo</strong>.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
