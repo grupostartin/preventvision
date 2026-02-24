@@ -148,8 +148,8 @@ export const HeroSection = () => {
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                 <div className="relative bg-card border tech-border rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
                   <img
-                    src="/hero-tech.png"
-                    alt="Prevent Vision Technology"
+                    src="/braslab1.jpg.jpeg"
+                    alt="Equipamentos Satisloh Multi-FLEX — laboratório Prevent Vision"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
@@ -170,8 +170,8 @@ export const HeroSection = () => {
             >
               <div className="rounded-2xl overflow-hidden border tech-border aspect-video">
                 <img
-                  src="/hero-tech.png"
-                  alt="Prevent Vision Tech"
+                  src="/braslab1.jpg.jpeg"
+                  alt="Equipamentos Satisloh Multi-FLEX — laboratório Prevent Vision"
                   className="w-full h-full object-cover"
                 />
               </div>

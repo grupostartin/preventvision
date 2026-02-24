@@ -13,7 +13,6 @@ import {
   ZapOff,
   Sparkles,
   MousePointer2,
-  Dna,
   CheckCircle2,
   Shield
 } from "lucide-react";
@@ -76,12 +75,18 @@ const OpticsPage = () => {
                   </p>
                 </div>
               </div>
-              <div className="relative">
-                <div className="aspect-square bg-card/50 border tech-border rounded-full p-8 flex items-center justify-center animate-pulse-glow">
-                  <div className="text-center">
-                    <Dna className="w-24 h-24 text-primary mx-auto mb-4 animate-float" />
-                    <p className="text-primary font-bold tracking-tighter text-2xl">FREE FORM</p>
-                    <p className="text-xs text-muted-foreground tracking-widest uppercase mt-2">Tecnologia Digital</p>
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000" />
+                <div className="relative rounded-2xl overflow-hidden border tech-border aspect-[4/3]">
+                  <img
+                    src="/blocagem-eologica-braslab.jpg.jpeg"
+                    alt="Processo de blocagem ecológica — precisão na fabricação de lentes Prevent Vision"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-primary font-bold tracking-tighter text-lg">FREE FORM</p>
+                    <p className="text-xs text-muted-foreground tracking-widest uppercase">Tecnologia Digital</p>
                   </div>
                 </div>
                 {/* Decorative dots */}
@@ -264,6 +269,19 @@ const OpticsPage = () => {
                 </div>
               ))}
             </div>
+
+            {/* Foto de linha de produção */}
+            <div className="relative mt-12 rounded-2xl overflow-hidden border tech-border group max-w-3xl mx-auto">
+              <img
+                src="/braslab4.jpg.jpeg"
+                alt="Linha de produção automatizada — laboratório Prevent Vision"
+                className="w-full h-64 sm:h-80 object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              <div className="absolute bottom-4 left-0 right-0 text-center">
+                <p className="text-sm text-primary font-semibold uppercase tracking-widest">Produção de alta precisão</p>
+              </div>
+            </div>
           </div>
         </section>
       </AnimatedSection>
@@ -286,7 +304,7 @@ const OpticsPage = () => {
           </AnimatedSection>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 
